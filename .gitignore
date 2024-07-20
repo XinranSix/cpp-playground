@@ -1,32 +1,19 @@
-# Prerequisites
-*.d
+# generate and build 
+/**/build
+/**/bin
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# IDE
+/**/.vscode
+/**/.vs
+/**/vsxmake2022
+/**/.VSCodeCounter
 
-# Precompiled Headers
-*.gch
-*.pch
+## text files
+/**/compile_commands.json
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+# others
+/**/.xmake
+/**/.cache
 
-# Fortran module files
-*.mod
-*.smod
+/**/imgui.ini
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
