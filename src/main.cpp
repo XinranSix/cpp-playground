@@ -1,21 +1,22 @@
-#include <iostream>
+#include <rttr/registration>
+#include <string>
 
-#include "scienum.h"
+using namespace rttr;
 
-enum class Color {
-    RED,
-    GREEN,
-    BLUE,
-    YELLOW,
+struct MyStruct {
+    MyStruct() {};
+    void func(double) {};
+    int data;
 };
 
+RTTR_REGISTRATION {
+    registration::class_<MyStruct>("MyStruct")
+        .constructor<>()
+        .property("data", &MyStruct::data)
+        .method("func", &MyStruct::func);
+}
 /* void func(int) { LOG("inthefunc(int)"); }
 
 void func() { LOG("inthefunc()"); } */
 
-int main(int argc, char* argv[]) {
-
-    std::cout << scienum::get_enum_name(Color::RED) << std::endl;
-
-    return 0;
-}
+int main(int argc, char* argv[]) { return 0; }
