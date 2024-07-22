@@ -14,7 +14,7 @@ add_includedirs("include")
 includes("examples")
 includes("tests")
 
--- rttr 是一个反射库
+-- rttr 一个反射库
 package("rttr")
     add_deps("cmake")
     set_sourcedir(path.join(os.scriptdir(), "3rdparty/rttr"))

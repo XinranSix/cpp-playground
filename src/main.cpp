@@ -1,5 +1,8 @@
+#include <iostream>
+#include <print>
+// #include <string>
+
 #include <rttr/registration>
-#include <string>
 
 using namespace rttr;
 
@@ -15,8 +18,17 @@ RTTR_REGISTRATION {
         .property("data", &MyStruct::data)
         .method("func", &MyStruct::func);
 }
-/* void func(int) { LOG("inthefunc(int)"); }
 
-void func() { LOG("inthefunc()"); } */
+int main(int argc, char* argv[]) {
 
-int main(int argc, char* argv[]) { return 0; }
+    type t = type::get<MyStruct>();
+    for (auto& prop : t.get_properties()) {
+        std::cout << "name: " << prop.get_name() << std::endl;
+    }
+
+    for (auto& meth : t.get_methods()) {
+        std::cout << "name: " << meth.get_name() << std::endl;
+    }
+
+    return 0;
+}
