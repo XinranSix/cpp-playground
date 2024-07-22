@@ -1,4 +1,5 @@
 includes("fmt_examples")
+includes("gsl_examples")
 includes("reflection")
 includes("type_traits")
 includes("fractal")
