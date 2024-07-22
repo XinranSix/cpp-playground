@@ -1,6 +1,7 @@
-#include <fstream>
 #include <iostream>
+#include <print>
 
+#include <fmt/core.h>
 #include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
@@ -9,20 +10,20 @@ int main(int argc, char* argv[]) {
 
     // Using (raw) string literals and json::parse
     json ex1 = json::parse(R"(
-  {
-    "pi": 3.141,
-    "happy": true
-  }
-)");
+      {
+        "pi": 3.141,
+        "happy": true
+      }
+    )");
 
     // Using user-defined (raw) string literals
     using namespace nlohmann::literals;
     json ex2 = R"(
-  {
-    "pi": 3.141,
-    "happy": true
-  }
-)"_json;
+      {
+        "pi": 3.141,
+        "happy": true
+      }
+    )"_json;
 
     // Using initializer lists
     json ex3 = {
@@ -30,6 +31,8 @@ int main(int argc, char* argv[]) {
         { "pi", 3.141 },
     };
 
+    std::cout << ex1 << std::endl;
+    std::cout << ex2 << std::endl;
     std::cout << ex3 << std::endl;
 
     return 0;
