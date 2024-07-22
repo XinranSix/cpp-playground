@@ -10,6 +10,7 @@ if is_plat("windows") then
 end
 
 add_includedirs("include")
+add_includedirs("./3rdparty/json/single_include")
 
 includes("examples")
 includes("tests")

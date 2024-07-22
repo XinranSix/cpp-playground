@@ -1,34 +1,36 @@
+#include <fstream>
 #include <iostream>
-#include <print>
-// #include <string>
 
-#include <rttr/registration>
+#include <nlohmann/json.hpp>
 
-using namespace rttr;
-
-struct MyStruct {
-    MyStruct() {};
-    void func(double) {};
-    int data;
-};
-
-RTTR_REGISTRATION {
-    registration::class_<MyStruct>("MyStruct")
-        .constructor<>()
-        .property("data", &MyStruct::data)
-        .method("func", &MyStruct::func);
-}
+using json = nlohmann::json;
 
 int main(int argc, char* argv[]) {
 
-    type t = type::get<MyStruct>();
-    for (auto& prop : t.get_properties()) {
-        std::cout << "name: " << prop.get_name() << std::endl;
-    }
+    // Using (raw) string literals and json::parse
+    json ex1 = json::parse(R"(
+  {
+    "pi": 3.141,
+    "happy": true
+  }
+)");
 
-    for (auto& meth : t.get_methods()) {
-        std::cout << "name: " << meth.get_name() << std::endl;
-    }
+    // Using user-defined (raw) string literals
+    using namespace nlohmann::literals;
+    json ex2 = R"(
+  {
+    "pi": 3.141,
+    "happy": true
+  }
+)"_json;
+
+    // Using initializer lists
+    json ex3 = {
+        { "happy", true },
+        { "pi", 3.141 },
+    };
+
+    std::cout << ex3 << std::endl;
 
     return 0;
 }
