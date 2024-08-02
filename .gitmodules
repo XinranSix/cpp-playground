@@ -1,9 +1,6 @@
 [submodule "3rdparty/rttr"]
 	path = 3rdparty/rttr
 	url = https://github.com/rttrorg/rttr.git
-[submodule "3rdparty/json"]
-	path = 3rdparty/json
-	url = https://github.com/nlohmann/json.git
 [submodule "3rdparty/imgui"]
 	path = 3rdparty/imgui
 	url = https://github.com/XinranSix/imgui.git

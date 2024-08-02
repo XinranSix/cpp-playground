@@ -10,7 +10,6 @@ if is_plat("windows") then
 end
 
 add_includedirs("include")
-add_includedirs("./3rdparty/json/single_include")
 
 includes("examples")
 includes("tests")
@@ -45,7 +44,17 @@ add_requires("nameof")
 add_requires("glfw") 
 add_requires("glad") 
 add_requires("opengl") 
--- add_requires("range-v3") 
+add_requires("range-v3") 
+add_requires("robin-map") 
+add_requires("backward-cpp") 
+add_requires("iguana") 
+add_requires("utfcpp") 
+add_requires("rapidjson") 
+add_requires("nlohmann_json") 
+add_requires("highway") 
+add_requires("eigen") 
+-- add_requires("amgcl") 
+-- add_requires("numcpp") 
 -- add_requires("joltphysics") 
 
 target("main")
