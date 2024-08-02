@@ -53,6 +53,8 @@ add_requires("rapidjson")
 add_requires("nlohmann_json") 
 add_requires("highway") 
 add_requires("eigen") 
+
+-- add_requires("tbb") 
 -- add_requires("amgcl") 
 -- add_requires("numcpp") 
 -- add_requires("joltphysics") 

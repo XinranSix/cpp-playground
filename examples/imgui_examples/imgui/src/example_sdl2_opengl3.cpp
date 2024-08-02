@@ -1,4 +1,6 @@
 
+#define SDL_MAIN_HANDLED
+
 #include <cstdio>
 
 #include "imgui.h"
