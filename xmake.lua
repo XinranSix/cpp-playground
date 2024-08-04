@@ -7,6 +7,7 @@ set_languages("c++23")
 
 if is_plat("windows") then
     add_cxflags("/utf-8")
+    -- add_cxflags("/P")
 end
 
 add_includedirs("include")
@@ -53,15 +54,16 @@ add_requires("rapidjson")
 add_requires("nlohmann_json") 
 add_requires("highway") 
 add_requires("eigen") 
+add_requires("yalantinglibs") 
+add_requires("onetbb") 
 
--- add_requires("tbb") 
 -- add_requires("amgcl") 
 -- add_requires("numcpp") 
 -- add_requires("joltphysics") 
 
 target("main")
     set_kind("binary")
-    add_files("src/*.cpp")
+    add_files("src/*.cpp") 
     -- add_tests("default")
-    add_packages("catch2", "boost", "fmt", "rttr")
+    add_packages("catch2", "boost", "fmt", "rttr", "yalantinglibs")
   

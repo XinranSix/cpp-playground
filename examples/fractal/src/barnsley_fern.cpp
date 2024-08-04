@@ -1,9 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include <random>
-
+ 
 constexpr int WIDTH = 800;
 constexpr int HEIGHT = 600;
-constexpr int POINTS = 100000;
+constexpr int POINTS = 100000; 
 
 sf::Vector2f barnsleyFernTransform(const sf::Vector2f &point) {
     static std::random_device rd;

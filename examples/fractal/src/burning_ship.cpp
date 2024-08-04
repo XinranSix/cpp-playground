@@ -1,6 +1,5 @@
 #include <SFML/Graphics.hpp>
 #include <complex>
-#include <iostream>
 
 constexpr int WIDTH = 800;
 constexpr int HEIGHT = 600;

@@ -69,7 +69,7 @@ int main() {
 
         // 更新动画
         auto t = clock.getElapsedTime();
-        sf::Time elapsed = clock.restart();
+        // sf::Time elapsed = clock.restart();
         angle += t.asSeconds() * 0.5; // 调整旋转速度
     }
 
