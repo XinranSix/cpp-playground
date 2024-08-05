@@ -9,5 +9,7 @@ const int& f() {
 int main(int argc, char* argv[]) {
     // std::cout << "Hello World" << std::endl;
 
+    f();
+
     return 0;
 }

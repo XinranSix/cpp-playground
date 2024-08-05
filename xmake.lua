@@ -64,6 +64,8 @@ add_requires("onetbb")
 target("main")
     set_kind("binary")
     add_files("src/*.cpp") 
-    -- add_tests("default")
     add_packages("catch2", "boost", "fmt", "rttr", "yalantinglibs")
   
+-- xmake project -k compile_commands
+-- xmake project -k makefile
+-- xmake project -k cmakelists
