@@ -56,6 +56,10 @@ add_requires("highway")
 add_requires("eigen") 
 add_requires("yalantinglibs") 
 add_requires("onetbb") 
+add_requires("opencv") 
+add_requires("cxxopts") 
+add_requires("spdlog") 
+add_requires("xxhash") 
 
 -- add_requires("amgcl") 
 -- add_requires("numcpp") 
@@ -69,3 +73,6 @@ target("main")
 -- xmake project -k compile_commands
 -- xmake project -k makefile
 -- xmake project -k cmakelists
+
+
+

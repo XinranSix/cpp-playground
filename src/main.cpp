@@ -1,15 +1,6 @@
-#include <iostream>
-#include <memory>
-
-const int& f() {
-    int i {};
-    return i;
-}
+#include <print>
 
 int main(int argc, char* argv[]) {
-    // std::cout << "Hello World" << std::endl;
-
-    f();
-
+    std::println("Hello World");
     return 0;
 }
