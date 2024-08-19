@@ -60,6 +60,11 @@ add_requires("opencv")
 add_requires("cxxopts") 
 add_requires("spdlog") 
 add_requires("xxhash") 
+add_requires("cli11") 
+-- 命令行解析
+add_requires("cxxopts") 
+add_requires("argparse") 
+add_requires("gflags") 
 
 -- add_requires("amgcl") 
 -- add_requires("numcpp") 
@@ -73,6 +78,3 @@ target("main")
 -- xmake project -k compile_commands
 -- xmake project -k makefile
 -- xmake project -k cmakelists
-
-
-
