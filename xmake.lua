@@ -16,7 +16,7 @@ includes("examples")
 includes("tests")
 
 -- rttr 一个反射库
-package("rttr")
+package("rttr") 
     add_deps("cmake")
     set_sourcedir(path.join(os.scriptdir(), "3rdparty/rttr"))
     on_install(function (package)
@@ -61,6 +61,7 @@ add_requires("cxxopts")
 add_requires("spdlog") 
 add_requires("xxhash") 
 add_requires("cli11") 
+add_requires("openfbx") 
 -- 命令行解析
 add_requires("cxxopts") 
 add_requires("argparse") 

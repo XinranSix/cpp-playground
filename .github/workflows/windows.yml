@@ -1,0 +1,42 @@
+name: Windows
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  xmake-build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest]
+        kind: [static, shared]
+        arch: [x64, x86, arm64]
+        runtimes: [MT, MD]
+
+    name: windows xmake 打包打包工作流
+
+    runs-on: ${{ matrix.os }}
+
+    concurrency:
+        group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-Windows-${{ matrix.os }}-${{ matrix.kind }}-${{ matrix.arch }}-${{ matrix.runtimes }}
+        cancel-in-progress: true
+    steps:
+      - name: 读取仓库内容
+        uses: actions/checkout@v4
+      - name: 安装 xmake
+        uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: branch@master
+      - name: Configure Pagefile
+        uses: al-cheb/configure-pagefile-action@v1.2
+        with:
+          minimum-size: 8GB
+          maximum-size: 32GB
+          disk-root: "D:"
+      - name: 递归拉取子模块
+        run: git submodule update --init --recursive  
+      - name: 安装依赖并打包
+        run: xmake -y
+        
