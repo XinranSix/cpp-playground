@@ -1,0 +1,34 @@
+name: Ubuntu
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-24.04]
+        kind: [static, shared]
+        mode: [debug, release]
+
+    runs-on: ${{ matrix.os }}
+
+    concurrency:
+        group: ${{ github.ref }}-${{ github.base_ref }}-${{ github.head_ref }}-Linux-${{ matrix.kind }}-${{ matrix.mode }}
+        cancel-in-progress: true
+    steps:
+      - name: 读取仓库内容
+        uses: actions/checkout@v4
+      - name: 安装 xmake
+        uses: xmake-io/github-action-setup-xmake@v1
+        with:
+          xmake-version: branch@master
+          actions-cache-folder: '.xmake-cache'
+          actions-cache-key: 'ubuntu'
+
+      - name: 递归拉取子模块
+        run: git submodule update --init --recursive  
+      - name: 安装依赖并打包
+        run: xmake -y
